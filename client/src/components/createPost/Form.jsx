@@ -38,7 +38,7 @@ const Form = () => {
         setPhoto(`data:image/jpeg;base64,${data.photo}`);
         setGeneratingImage(false);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
         setGeneratingImage(false);
       }
     }
