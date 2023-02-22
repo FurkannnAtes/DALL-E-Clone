@@ -19,7 +19,7 @@ const Form = () => {
     const res = await getRandomPrompt();
     setPrompt(res);
   };
-
+  //generate
   const generateImage = async () => {
     if (prompt.trimStart() !== "") {
       try {
