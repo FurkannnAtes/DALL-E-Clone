@@ -9,7 +9,9 @@ const Home = () => {
 
   const getPosts = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/v1/posts");
+      const res = await fetch(
+        "https://dall-e-clone-backend.onrender.com/api/v1/posts"
+      );
 
       const data = await res.json();
       setPosts(data.data);
