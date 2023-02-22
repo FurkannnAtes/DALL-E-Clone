@@ -24,13 +24,16 @@ const Form = () => {
     if (prompt.trimStart() !== "") {
       try {
         setGeneratingImage(true);
-        const response = await fetch("http://localhost:8080/api/v1/dalle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt: prompt }),
-        });
+        const response = await fetch(
+          "https://dall-e-clone-backend.onrender.com/api/v1/dalle",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt: prompt }),
+          }
+        );
         const data = await response.json();
         setPhoto(`data:image/jpeg;base64,${data.photo}`);
         setGeneratingImage(false);
@@ -49,13 +52,16 @@ const Form = () => {
       try {
         setSubmit(true);
         setShareing(true);
-        const response = await fetch("http://localhost:8080/api/v1/posts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt, name, photo }),
-        });
+        const response = await fetch(
+          "https://dall-e-clone-backend.onrender.com/api/v1/posts",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt, name, photo }),
+          }
+        );
         await response.json();
         navigate("/");
         setShareing(false);
