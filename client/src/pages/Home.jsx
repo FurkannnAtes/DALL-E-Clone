@@ -16,7 +16,7 @@ const Home = () => {
       const data = await res.json();
       setPosts(data.data);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
   return (
